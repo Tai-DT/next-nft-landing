@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const faqs = [
   {
@@ -26,43 +27,92 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section id="faq" className="relative bg-white py-20">
-      <div className="max-w-[900px] mx-auto px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-[48px] font-black text-black mb-4">FAQ</h2>
-          <p className="text-xl text-gray-600">よくある質問</p>
-        </div>
+    <section id="faq" className="py-20 bg-[#050c9c] relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full" 
+             style={{
+               backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+               backgroundSize: '30px 30px'
+             }}
+        />
+      </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white border-2 border-gray-200 rounded-[20px] overflow-hidden hover:border-[#3ABEF9] transition-colors"
-            >
-              <button
-                type="button"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-8 py-6 flex items-center justify-between text-left"
-              >
-                <span className="text-xl font-bold text-black pr-4">{faq.question}</span>
-                <span className="text-3xl text-[#3ABEF9] flex-shrink-0">
-                  {openIndex === index ? '−' : '+'}
-                </span>
-              </button>
+      {/* Decorative NFT Characters */}
+      <div className="absolute left-0 bottom-[10%] w-[200px] h-[200px] opacity-20 pointer-events-none hidden lg:block">
+        <Image 
+          src="/nft-character-left.png" 
+          alt="" 
+          width={200} 
+          height={200}
+          className="object-contain"
+        />
+      </div>
+      
+      <div className="absolute right-0 top-[20%] w-[200px] h-[200px] opacity-20 pointer-events-none hidden lg:block">
+        <Image 
+          src="/nft-character-left.png" 
+          alt="" 
+          width={200} 
+          height={200}
+          className="object-contain transform scale-x-[-1]"
+        />
+      </div>
+
+      {/* FAQ Title */}
+      <div className="text-center py-[160px] px-[10px] relative z-10">
+        <div className="text-white text-[48px] font-roboto font-bold tracking-[3.84px]">
+          FAQ
+        </div>
+      </div>
+
+      {/* FAQ Items */}
+      <div className="max-w-[920px] mx-auto px-4 flex flex-col gap-[30px] pb-20 relative z-10">
+        {faqs.map((faq, index) => (
+          <div key={index}>
+            {/* FAQ Item Container */}
+            <div className={`w-full ${openIndex === index ? 'min-h-[210px]' : 'h-[130px]'} bg-white rounded-[20px] border border-[#050C9C] relative transition-all duration-300 shadow-lg hover:shadow-xl`}>
               
+              {/* Question */}
+              <div className="absolute left-[40px] top-[40px] flex justify-start items-center gap-[40px] pr-[100px]">
+                <div className="text-center text-[#050C9C] text-[32px] font-roboto font-bold leading-[43.94px] flex-shrink-0">
+                  Q
+                </div>
+                <div className="text-center text-black text-[22px] font-['Noto_Sans_JP'] font-bold leading-[30.21px]">
+                  {faq.question}
+                </div>
+              </div>
+
+              {/* Toggle Button */}
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="absolute right-[40px] top-[40px] w-[48px] h-[48px] rounded-full border border-[#050C9C] flex items-center justify-center hover:bg-[#050C9C] hover:text-white transition-colors group"
+                aria-label={openIndex === index ? '閉じる' : '開く'}
+              >
+                <div className={`w-[25.60px] h-[25.60px] relative overflow-hidden transition-transform duration-300 ${
+                  openIndex === index ? 'rotate-180' : ''
+                }`}>
+                  <div className="w-0 h-0 border-l-[4px] border-r-[4px] border-t-[8px] border-l-transparent border-r-transparent border-t-[#050C9C] group-hover:border-t-white absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  </div>
+                </div>
+              </button>
+
+              {/* Answer */}
               {openIndex === index && (
-                <div className="px-8 pb-6">
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    {faq.answer}
-                  </p>
+                <div className="absolute left-[40px] top-[100px] right-[40px] text-black text-[16px] font-['Noto_Sans_JP'] font-normal leading-[24px] tracking-[0.48px] pb-[40px]">
+                  {faq.answer}
                 </div>
               )}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
