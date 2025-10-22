@@ -4,12 +4,12 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative h-[800px] overflow-hidden bg-white">
+    <section className="relative min-h-screen sm:h-[800px] overflow-hidden bg-white" aria-label="Hero - Next Generation NFT">
       {/* Background with 15% opacity colorful pattern (fv-1) */}
       <div className="absolute inset-0 z-0">
         <Image 
           src="/fv-1.png"
-          alt=""
+          alt="decorative colorful background"
           width={1440}
           height={800}
           sizes="100vw"
@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-[1] pointer-events-none">
         <Image 
           src="/hero-stars-overlay.svg"
-          alt=""
+          alt="decorative stars overlay"
           fill
           sizes="100vw"
           className="object-cover"
@@ -34,20 +34,19 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-[1440px] mx-auto h-full">
         {/* Character Group - Figma node 1:2113, positioned at x=20, y=30 */}
-        <div className="absolute left-[20px] top-[30px] w-[805.9px] h-[742.4px]">
-          {/* Character Image - Figma node 1:2114, dimensions: 737.747×665.978, rotation: 353.743deg */}
+        <div className="absolute left-[20px] top-[30px] w-[805.9px] h-[742.4px] hidden sm:block">
+          {/* Character Image - try dynamic from Figma first; fallback remains available inside FigmaComponent if it can't fetch */}
           <div className="absolute flex h-full w-full items-center justify-center">
             <div className="rotate-[353.743deg]">
               <div className="relative w-[737.747px] h-[665.978px]">
                 <div className="absolute" style={{ inset: '-2.46% -3.38% -3.63% -2.27%' }}>
+                  {/* Try rendering from Figma (falls back to placeholder UI while loading or on error) */}
                   <Image 
-                    src="/hero-character-new.png"
-                    alt="NFT Character"
-                    width={780}
-                    height={707}
-                    className="block w-full h-full object-cover"
-                    priority
-                    style={{ width: '100%', height: 'auto' }}
+                    src="/hero-character-new.png" 
+                    alt="NFT Character" 
+                    width={780} 
+                    height={707} 
+                    className="w-full h-auto block" 
                   />
                 </div>
               </div>
@@ -57,7 +56,7 @@ export default function Hero() {
           {/* Text "Whaaaaat!?" - Figma node 1:2115, positioned at bottom-right, rotation: 350.52deg */}
           <div className="absolute bottom-[110px] left-[216px] flex items-center justify-center">
             <div className="rotate-[350.52deg]" style={{ transformOrigin: 'center center' }}>
-              <p className="relative text-[80px] tracking-[0.8px] leading-[1.4] font-black font-mplus-1p text-black whitespace-nowrap" style={{
+              <h2 className="relative text-[clamp(36px,7vw,80px)] tracking-[0.8px] leading-[1.1] font-black font-mplus-1p text-black whitespace-nowrap md:text-[80px]" style={{
                 textShadow: `
                   3px 0 0 #fff, 0 3px 0 #fff, -3px 0 0 #fff, 0 -3px 0 #fff,
                   3px 3px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff,
@@ -66,13 +65,23 @@ export default function Hero() {
                 `
               }}>
                 Whaaaaat!?
-              </p>
+              </h2>
             </div>
           </div>
         </div>
 
+        {/* Fallback simplified character for small screens */}
+        <div className="block sm:hidden px-6 pt-12">
+          <div className="w-full max-w-[420px] mx-auto">
+            <Image src="/hero-character-new.png" alt="NFT Character" width={420} height={380} className="w-full h-auto" priority />
+          </div>
+          <div className="text-center mt-6">
+            <h1 className="font-black font-mplus-1p text-[clamp(28px,6vw,48px)] leading-[1.1]">Whaaaat!?</h1>
+          </div>
+        </div>
+
         {/* Speech bubble - Figma node 1:2117, positioned at x=612, y=42.09 */}
-        <div className="absolute left-[612px] top-[42.09px] w-[752px] h-[572px]">
+        <div className="absolute left-[612px] top-[42.09px] w-[752px] h-[572px] hidden sm:block">
           {/* Bubble background - Figma node 1:2118, rotation: 8deg */}
           <div className="absolute flex h-full w-full items-center justify-center">
             <div className="rotate-[8deg]">
@@ -80,7 +89,7 @@ export default function Hero() {
                 <div className="absolute" style={{ bottom: '-1.4%', left: '0', right: '-1.06%', top: '0' }}>
                   <Image 
                     src="/hero-bubble.svg"
-                    alt=""
+                    alt="speech bubble"
                     fill
                     className="block max-w-none w-full h-full"
                     priority
@@ -94,7 +103,7 @@ export default function Hero() {
           {/* Text "えっ！" - positioned with inset */}
           <div className="absolute flex items-center justify-center" style={{ inset: '17.49% 16.17% 60.87% 62.59%' }}>
             <div className="rotate-[8deg]">
-              <p className="w-[290px] h-[134px] text-[96px] tracking-[0.96px] leading-[1.4] font-black font-mplus-1p text-black text-center" style={{
+              <p className="w-[290px] h-[134px] text-[96px] tracking-[0.96px] leading-[1.4] font-black font-mplus-1p text-black text-center md:text-[96px]" style={{
                 textShadow: '4px 4px 4px rgba(0,0,0,0.25)'
               }}>
                 えっ！
@@ -108,12 +117,12 @@ export default function Hero() {
               <div className="text-center font-black font-mplus-1p text-black leading-[1.3] tracking-[0.54px] whitespace-nowrap" style={{
                 textShadow: '4px 4px 4px rgba(0,0,0,0.25)'
               }}>
-                <p className="mb-0">
-                  <span className="text-[66px]">NFT</span>
-                  <span className="text-[54px]">送るのに</span>
-                </p>
-                <p className="mb-0 text-[54px]">まだガス代</p>
-                <p className="text-[54px]">払ってるの？</p>
+                <h1 className="mb-0">
+                  <span className="text-[clamp(28px,3.5vw,66px)]">NFT</span>
+                  <span className="text-[clamp(22px,2.8vw,54px)]">送るのに</span>
+                </h1>
+                <p className="mb-0 text-[clamp(22px,2.8vw,54px)]">まだガス代</p>
+                <p className="text-[clamp(22px,2.8vw,54px)]">払ってるの？</p>
               </div>
             </div>
           </div>

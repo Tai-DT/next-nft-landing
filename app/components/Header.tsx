@@ -1,85 +1,54 @@
 'use client';
 
-import { useState } from 'react';
-
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-  <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-      <div className="max-w-[1360px] mx-auto px-10 py-[30px] flex items-center justify-between">
+    <header className="bg-[#252525] py-[160px] px-[287px] relative w-full">
+      <div className="flex items-start gap-[100px] max-w-full">
         {/* Logo */}
-        <h1 
-          className="font-dela text-[#050c9c] text-[32px] font-bold tracking-[0.32px] leading-[1.4]"
-        >
-          次世代NFT
-        </h1>
-        
-        {/* Menu Button */}
-        <button 
-          type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="flex items-center gap-[20px] text-black relative"
-        >
-          <span 
-            className="font-mplus text-[30px] font-medium tracking-[0.3px] leading-[1.4]"
-          >
-            Menu
-          </span>
-          
-          {/* Hamburger icon with rotation effect */}
-          <div className="relative w-[59px] h-[59px] flex items-center justify-center">
-            <div className={`absolute transition-transform duration-300 ${menuOpen ? 'rotate-[135deg]' : 'rotate-[315deg]'}`}>
-              {/* Three parallel lines forming hamburger menu */}
-              <div className="relative w-[42px] h-[36px]">
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-black"></div>
-                <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[3px] bg-black"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black"></div>
-              </div>
-            </div>
-          </div>
-        </button>
-      </div>
+        <a href="/#top" className="inline-flex" aria-label="Home - 次世代NFT">
+          <h1 className="font-dela text-white text-[52px] font-bold tracking-[1.04px] leading-none">
+            次世代NFT
+          </h1>
+        </a>
 
-      {/* Dropdown Menu */}
-      {menuOpen && (
-        <nav className="absolute top-full left-0 right-0 bg-white/90 backdrop-blur-sm border-t border-gray-100">
-          <ul className="max-w-[1360px] mx-auto px-10 py-6 space-y-4">
-            <li>
-              <a 
-                href="#what-is-nft" 
-                className="block text-lg font-medium hover:text-[#050c9c] transition-colors"
-              >
-                NFTってなんだ？
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#evolution" 
-                className="block text-lg font-medium hover:text-[#050c9c] transition-colors"
-              >
-                NFTの進化
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#series" 
-                className="block text-lg font-medium hover:text-[#050c9c] transition-colors"
-              >
-                次世代シリーズ
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#faq" 
-                className="block text-lg font-medium hover:text-[#050c9c] transition-colors"
-              >
-                FAQ
-              </a>
-            </li>
-          </ul>
+        {/* Desktop Navigation Menu */}
+        <nav className="flex flex-col gap-[30px] items-start font-mplus font-extrabold text-[16px] text-white leading-[24px]">
+          <a href="/#faq" className="hover:opacity-80 transition-opacity">
+            FAQ
+          </a>
+          <a href="/#privacy" className="hover:opacity-80 transition-opacity">
+            プライバシーポリシー
+          </a>
         </nav>
-      )}
+
+        {/* LINE Contact Button */}
+        <div className="h-[51px] w-[207px] relative">
+          <a
+            href="https://line.me/R/ti/p/%40nft"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bg-[#01b202] h-full rounded-[7.2px] w-full flex items-center justify-center gap-[17.12px] hover:bg-[#01a002] transition-colors"
+          >
+            <span className="font-bold text-white text-[32px] leading-none">
+              󰔗
+            </span>
+            <span className="font-mplus font-extrabold text-white text-[15px] leading-none">
+              LINEでお問い合わせ
+            </span>
+          </a>
+        </div>
+
+        {/* Language & Social Icons */}
+        <div className="ml-auto flex items-center gap-[10px]">
+          {/* Language selector and social icons would go here */}
+          <div className="flex gap-[20px]">
+            {/* Japanese flag or language selector */}
+            <button type="button" className="text-white hover:opacity-80 transition-opacity" aria-label="Language">
+              🇯🇵
+            </button>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }

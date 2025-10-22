@@ -10,7 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#050c9c]">
+    <div id="top" className="relative min-h-screen bg-[#050c9c]">
       <Header />
       <Hero />
       <WhatIsNFT />
