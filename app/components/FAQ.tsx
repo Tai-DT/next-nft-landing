@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const faqs = [
   {
@@ -33,20 +34,51 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#050c9c] relative">
+    <section id="faq" className="py-20 bg-[#050c9c] relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full" 
+             style={{
+               backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+               backgroundSize: '30px 30px'
+             }}
+        />
+      </div>
+
+      {/* Decorative NFT Characters */}
+      <div className="absolute left-0 bottom-[10%] w-[200px] h-[200px] opacity-20 pointer-events-none hidden lg:block">
+        <Image 
+          src="/nft-character-left.png" 
+          alt="" 
+          width={200} 
+          height={200}
+          className="object-contain"
+        />
+      </div>
+      
+      <div className="absolute right-0 top-[20%] w-[200px] h-[200px] opacity-20 pointer-events-none hidden lg:block">
+        <Image 
+          src="/nft-character-left.png" 
+          alt="" 
+          width={200} 
+          height={200}
+          className="object-contain transform scale-x-[-1]"
+        />
+      </div>
+
       {/* FAQ Title */}
-      <div className="text-center py-[160px] px-[10px]">
+      <div className="text-center py-[160px] px-[10px] relative z-10">
         <div className="text-white text-[48px] font-roboto font-bold tracking-[3.84px]">
           FAQ
         </div>
       </div>
 
       {/* FAQ Items */}
-      <div className="max-w-[920px] mx-auto px-4 flex flex-col gap-[30px] pb-20">
+      <div className="max-w-[920px] mx-auto px-4 flex flex-col gap-[30px] pb-20 relative z-10">
         {faqs.map((faq, index) => (
           <div key={index}>
             {/* FAQ Item Container */}
-            <div className={`w-full ${openIndex === index ? 'min-h-[210px]' : 'h-[130px]'} bg-white rounded-[20px] border border-[#050C9C] relative transition-all duration-300`}>
+            <div className={`w-full ${openIndex === index ? 'min-h-[210px]' : 'h-[130px]'} bg-white rounded-[20px] border border-[#050C9C] relative transition-all duration-300 shadow-lg hover:shadow-xl`}>
               
               {/* Question */}
               <div className="absolute left-[40px] top-[40px] flex justify-start items-center gap-[40px] pr-[100px]">
@@ -62,6 +94,7 @@ export default function FAQ() {
               <button
                 onClick={() => toggleFAQ(index)}
                 className="absolute right-[40px] top-[40px] w-[48px] h-[48px] rounded-full border border-[#050C9C] flex items-center justify-center hover:bg-[#050C9C] hover:text-white transition-colors group"
+                aria-label={openIndex === index ? '閉じる' : '開く'}
               >
                 <div className={`w-[25.60px] h-[25.60px] relative overflow-hidden transition-transform duration-300 ${
                   openIndex === index ? 'rotate-180' : ''
