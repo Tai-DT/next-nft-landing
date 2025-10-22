@@ -4,108 +4,74 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0b1020] text-white py-16">
-      <div className="max-w-[1360px] mx-auto px-6">
-        <div className="flex flex-wrap justify-between gap-8 mb-10">
-          {/* Brand */}
-          <div className="flex-1 min-w-[220px]">
-            <div className="flex items-center gap-4">
-              {/* If you add a logo to public, replace the text with Image */}
-              <div className="flex items-center gap-3">
-                <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-yellow-300 flex items-center justify-center">
-                  <span className="text-xl">🐵</span>
-                </div>
-                <h3 className="text-[40px] font-black tracking-wider -mt-1">次世代NFT</h3>
-              </div>
+    <footer className="relative bg-[#252525] text-white overflow-hidden">
+      {/* Menu Section */}
+      <div className="px-[287px] py-[160px] flex justify-start items-start gap-[100px] relative z-10">
+        {/* Logo */}
+        <div className="pb-[30px] flex justify-start items-center gap-[3px]">
+          <div className="text-white text-[52px] font-dela font-normal leading-[52px] tracking-[1.04px]">
+            次世代NFT
+          </div>
+        </div>
+
+        {/* Menu Items */}
+        <div className="flex flex-col justify-start items-start gap-[30px]">
+          <a href="#faq" className="text-white text-[16px] font-mplus font-extrabold leading-[24px] hover:text-[#3ABEF9] transition-colors">
+            FAQ
+          </a>
+          <Link href="/privacy" className="text-white text-[16px] font-mplus font-extrabold leading-[24px] hover:text-[#3ABEF9] transition-colors">
+            プライバシーポリシー
+          </Link>
+        </div>
+
+        {/* LINE Contact Button */}
+        <div className="w-[207px] h-[51px] relative">
+          <div className="w-[207px] h-[51px] absolute left-0 top-0 bg-[#01B202] rounded-[7.2px] flex items-center hover:bg-[#019a01] transition-colors cursor-pointer">
+            <div className="absolute left-[16px] top-[10px] text-white text-[32px] leading-[32px]">
+              💬
             </div>
-            <p className="mt-6 text-sm text-white/70 max-w-sm">
-              次世代のNFTがもたらす価値や使われ方をやさしく解説するランディングページです。
-            </p>
-          </div>
-
-          {/* Menu */}
-          <div className="flex-1 min-w-[180px]">
-            <h4 className="text-lg font-bold mb-3">メニュー</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#what-is-nft" className="hover:text-[#3ABEF9] transition-colors">
-                  NFTってなんだ？
-                </a>
-              </li>
-              <li>
-                <a href="#evolution" className="hover:text-[#3ABEF9] transition-colors">
-                  NFTの進化
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-[#3ABEF9] transition-colors">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <Link href="/privacy" className="hover:text-[#3ABEF9] transition-colors">
-                  プライバシーポリシー
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact & Social */}
-          <div className="flex-1 min-w-[220px]">
-            <h4 className="text-lg font-bold mb-3">お問い合わせ</h4>
-            <div className="flex flex-col gap-4">
-              <a
-                href="/#contact"
-                className="inline-flex items-center gap-3 bg-[#01b202] text-white px-5 py-3 rounded-lg hover:bg-[#019a01] transition-colors max-w-max"
-                aria-label="Contact via LINE"
-              >
-                <span className="text-2xl">💬</span>
-                <span className="font-bold">LINEでお問い合わせ</span>
-              </a>
-
-              <div>
-                <h4 className="text-lg font-bold mb-2">フォローする</h4>
-                <div className="flex gap-3">
-                  <a
-                    href="https://twitter.com/"
-                    className="w-10 h-10 bg-white/8 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
-                    aria-label="Twitter"
-                  >
-                    <span className="text-lg">🐦</span>
-                  </a>
-                  <a
-                    href="https://discord.com/"
-                    className="w-10 h-10 bg-white/8 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
-                    aria-label="Discord"
-                  >
-                    <span className="text-lg">💬</span>
-                  </a>
-                </div>
-              </div>
+            <div className="absolute left-[50.12px] top-[19px] text-white text-[15px] font-mplus font-extrabold leading-[15px]">
+              LINEでお問い合わせ
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-white/10 pt-6 flex flex-wrap justify-between items-center gap-4">
-          <p className="text-sm text-white/60">© {new Date().getFullYear()} 次世代NFT. All Rights Reserved.</p>
-
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex items-center gap-2 text-[#3ABEF9] hover:text-[#2a9ed9] transition-colors"
-              aria-label="Back to top"
-            >
-              <span className="font-medium">TOP</span>
-              <span aria-hidden>↑</span>
-            </button>
-
-            <Link href="/terms" className="text-sm text-white/60 hover:text-white transition-colors">
-              利用規約
-            </Link>
-          </div>
+        {/* Social Media Icons */}
+        <div className="flex gap-4">
+          {/* Twitter */}
+          <a href="https://twitter.com/" className="w-[45.84px] h-[26.43px] bg-[#22ABF3] hover:opacity-80 transition-opacity" aria-label="Twitter"></a>
+          {/* Facebook */}
+          <a href="https://facebook.com/" className="w-[45.84px] h-[26.43px] bg-white hover:opacity-80 transition-opacity" aria-label="Facebook"></a>
+          {/* Instagram */}
+          <a href="https://instagram.com/" className="w-[47.72px] h-[28.16px] bg-black hover:opacity-80 transition-opacity" aria-label="Instagram"></a>
+          {/* YouTube */}
+          <a href="https://youtube.com/" className="w-[44.31px] h-[32.60px] bg-[#E70012] hover:opacity-80 transition-opacity" aria-label="YouTube"></a>
+          {/* TikTok */}
+          <a href="https://tiktok.com/" className="w-[45.48px] h-[41.57px] bg-[#F9FE01] hover:opacity-80 transition-opacity" aria-label="TikTok"></a>
+          {/* Discord */}
+          <a href="https://discord.com/" className="w-[37.94px] h-[34px] bg-[#FE01F4] hover:opacity-80 transition-opacity" aria-label="Discord"></a>
         </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="absolute left-[632px] bottom-[20px] px-[10px] py-[10px] flex justify-center items-center">
+        <div className="text-center text-white text-[14px] font-mplus font-normal leading-[28px]">
+          Copyright © 次世代NFT
+        </div>
+      </div>
+
+      {/* Scroll to Top Button */}
+      <div className="fixed bottom-[20px] right-[40px] z-50">
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="w-[65px] h-[65px] bg-[#ADDBFF] rounded-full flex flex-col items-center justify-center hover:bg-[#9DCFFF] transition-colors"
+          aria-label="Back to top"
+        >
+          <div className="text-[#3ABEF9] text-[13px] font-mplus font-medium leading-[18.2px] tracking-[0.13px]">
+            TOP↑
+          </div>
+        </button>
       </div>
     </footer>
   );
