@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 次世代NFT Landing Page
 
-## Getting Started
+Next.js + TypeScript で構築された次世代NFTのランディングページです。
 
-First, run the development server:
+## 🎨 デザイン
+
+このプロジェクトは Figma デザインから MCP (Model Context Protocol) を使用して自動生成されました。
+
+デザインファイル: https://www.figma.com/design/ysKjT7GRvdF63bzkUwsMAV/次世代NFT-LP
+
+## 🚀 技術スタック
+
+- **Next.js 15** - React フレームワーク
+- **TypeScript** - 型安全性
+- **Tailwind CSS** - スタイリング
+- **Biome** - リント・フォーマット
+
+## 📦 インストール
+
+```bash
+npm install
+```
+
+## 🏃 開発サーバー
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いてください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌟 主要機能
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### セクション構成
+
+1. **ヒーローセクション** - インパクトのあるビジュアルとメッセージ
+2. **NFTとは？** - NFTの基本説明とユースケース紹介
+3. **NFTの進化** - 次世代NFTの特徴
+4. **シリーズ紹介** - グリーン、レッド、スペシャルエディション
+5. **ダウンロード** - iOS/Androidアプリのダウンロード
+6. **FAQ** - よくある質問
+7. **フッター** - ナビゲーションと連絡先
+
+### 主な特徴
+
+- 📱 レスポンシブデザイン
+- 🎭 アニメーション効果
+- 🎨 グラデーションと現代的なUI
+- ♿ アクセシビリティ対応
+- 🚀 パフォーマンス最適化
+
+## 📂 プロジェクト構造
+
+```
+next-nft-landing/
+├── app/
+│   ├── components/
+│   │   ├── Header.tsx         # ヘッダーナビゲーション
+│   │   ├── Hero.tsx           # ヒーローセクション
+│   │   ├── WhatIsNFT.tsx      # NFT説明セクション
+│   │   ├── NFTEvolution.tsx   # 進化セクション
+│   │   ├── Series.tsx         # シリーズ紹介
+│   │   ├── Download.tsx       # ダウンロードセクション
+│   │   ├── FAQ.tsx            # FAQ
+│   │   └── Footer.tsx         # フッター
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── public/
+├── biome.json
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── README.md
+└── tsconfig.json
+```
+
+## 🎨 カラーパレット
+
+- **Primary Blue**: #050C9C
+- **Accent Blue**: #3ABEF9
+- **Light Blue**: #A7E6FF
+- **Green**: #0DCD7C
+- **Yellow**: #FEEF01
+- **Pink**: #FF3795
+- **White**: #FFFFFF
+- **Dark**: #252525
+
+## 🔧 開発コマンド
+
+```bash
+# 開発サーバー起動
+npm run dev
+
+# プロダクションビルド
+npm run build
+
+# プロダクションサーバー起動
+npm start
+
+# リント
+npm run lint
+
+# フォーマット
+npm run format
+```
+
+## 📝 カスタマイズ
+
+### コンテンツの編集
+
+各セクションのコンテンツは対応するコンポーネントファイルで編集できます：
+
+- ヒーローセクションのテキスト: `app/components/Hero.tsx`
+- NFTユースケース: `app/components/WhatIsNFT.tsx` の `useCases` 配列
+- FAQ: `app/components/FAQ.tsx` の `faqs` 配列
+
+### スタイルの変更
+
+Tailwind CSS を使用しているため、クラス名を変更するだけでスタイルをカスタマイズできます。
+
+カスタムスタイルは `app/globals.css` に追加してください。
+
+## 🌐 デプロイ
+
+### Vercel へのデプロイ（推奨）
+
+```bash
+# Vercel CLI をインストール
+npm install -g vercel
+
+# デプロイ
+vercel
+```
+
+または GitHub リポジトリを Vercel に接続して自動デプロイを設定できます。
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about Next.js:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 ライセンス
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+このプロジェクトは MIT ライセンスの下で公開されています。
